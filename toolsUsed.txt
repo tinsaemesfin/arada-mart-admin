@@ -1,0 +1,2 @@
+shadcn => for Ui and tailwind purpose 
+clerk => for authentication purpose
