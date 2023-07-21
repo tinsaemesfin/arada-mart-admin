@@ -1,6 +1,9 @@
 {
     "cSpell.words": [
         "Arada",
-        "nextjs"
-    ]
+        "nextjs",
+        "prismadb"
+    ],
+    "WillLuke.nextjs.addTypesOnSave": true,
+    "WillLuke.nextjs.hasPrompted": true
 }
