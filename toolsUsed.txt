@@ -1,3 +1,6 @@
 shadcn => for Ui and tailwind purpose 
 clerk => for authentication purpose
 Zustand => used for state management 
+prisma=> for db model
+planet scale => for database
+reat-hot-toast => for showing toasts
