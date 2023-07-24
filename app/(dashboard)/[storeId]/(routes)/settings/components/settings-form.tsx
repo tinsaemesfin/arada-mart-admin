@@ -15,6 +15,7 @@ import { useParams,useRouter } from "next/navigation";
 import { use, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import {useOrigin} from '@/hooks/use-origin'
 import * as z from "zod";
 
 interface SettingsProps {
@@ -32,6 +33,8 @@ export const SettingsForm: React.FC<SettingsProps> = ({ initialData }) => {
   const [loading,setLoading] = useState(false);
   const params = useParams();
   const router = useRouter();
+  const origin = useOrigin();
+
 
   const form = useForm<SettingsFormValues>({
     resolver: zodResolver(formSchema),
