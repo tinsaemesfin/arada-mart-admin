@@ -16,7 +16,6 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  Billboard,
   Category,
   Color,
   Image,
@@ -105,11 +104,12 @@ export const ProductForm: React.FC<ProductProps> = ({
     try {
       setLoading(true);
       if (initialData) {
+        // console.log(data)
         await axios.patch(
           `/api/${params.storeId}/products/${params.productId}`,
           data
         );
-      } else {
+      } else {    
         await axios.post(`/api/${params.storeId}/products`, data);
       }
 
@@ -126,16 +126,12 @@ export const ProductForm: React.FC<ProductProps> = ({
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(
-        `/api/${params.storeId}/products/${params.productId}`
-      );
-      toast.success("Billboard deleted");
+      await axios.delete(`/api/${params.storeId}/products/${params.productId}`);
+      toast.success("Product deleted");
       router.refresh();
       router.push(`/${params.storeId}/products`);
     } catch (error) {
-      toast.error(
-        "Something went wrong"
-      );
+      toast.error("Something went wrong");
     } finally {
       setLoading(false);
       setOpen(false);
@@ -180,6 +176,7 @@ export const ProductForm: React.FC<ProductProps> = ({
                   <ImageUpload
                     value={field.value.map((image) => image.url)}
                     disabled={loading}
+                    
                     onChange={(url) =>
                       field.onChange([...field.value, { url }])
                     }
@@ -345,7 +342,10 @@ export const ProductForm: React.FC<ProductProps> = ({
                   <FormControl>
                     <Checkbox
                       checked={field.value}
-                      onCheckedChange={field.onChange}
+                      // onChange={field.onChange}
+                      // @ts-ignore
+                      onCheckedChange={field.onChange }
+                      
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
@@ -359,7 +359,7 @@ export const ProductForm: React.FC<ProductProps> = ({
               )}
             />
 
-<FormField
+            <FormField
               control={form.control}
               name="isArchived"
               render={({ field }) => (
@@ -374,7 +374,7 @@ export const ProductForm: React.FC<ProductProps> = ({
                     <FormLabel>Archived </FormLabel>
                     <FormDescription>
                       {" "}
-                      This Product will not be displayed 
+                      This Product will not be displayed
                     </FormDescription>
                   </div>
                 </FormItem>
