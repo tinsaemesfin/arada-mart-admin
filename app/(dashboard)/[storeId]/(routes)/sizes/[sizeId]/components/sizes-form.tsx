@@ -14,7 +14,7 @@ import { Heading } from "@/components/ui/heading";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Billboard, Size } from "@prisma/client";
+import {  Size } from "@prisma/client";
 import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { use, useState } from "react";
@@ -22,7 +22,6 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { useOrigin } from "@/hooks/use-origin";
 import * as z from "zod";
-import ImageUpload from "@/components/ui/image-upload";
 import axios from "axios";
 
 interface SizeClientProps {
