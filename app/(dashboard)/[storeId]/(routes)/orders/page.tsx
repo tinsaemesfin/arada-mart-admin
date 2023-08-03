@@ -1,8 +1,8 @@
 import React from "react";
 import {format} from "date-fns";
-import { BillboardClient, OrderClient } from "./components/client";
+import {  OrderClient } from "./components/client";
 import prismadb from "@/lib/prismadb";
-import { BillboardColumn, OrderColumn } from "./components/columns";
+import {  OrderColumn } from "./components/columns";
 import { formatter } from "@/lib/utils";
 
 const OrdersPage = async ({ params }: { params: { storeId: string } }) => {
