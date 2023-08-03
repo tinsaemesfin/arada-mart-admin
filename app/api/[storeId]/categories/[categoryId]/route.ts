@@ -1,3 +1,4 @@
+import { Billboard } from '@prisma/client';
 import prismadb from "@/lib/prismadb";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
@@ -19,6 +20,9 @@ export async function GET(
         where: {
           id: params.categoryId,
         },
+        include:{
+          billboard:true
+        }
       });
   
       return NextResponse.json(category);
@@ -102,6 +106,7 @@ export async function DELETE(
       where: {
         id: params.categoryId,
       },
+     
     });
 
     return NextResponse.json(category);
