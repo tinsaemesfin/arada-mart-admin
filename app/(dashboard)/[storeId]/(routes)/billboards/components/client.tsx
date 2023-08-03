@@ -9,11 +9,11 @@ import { Separator } from "@/components/ui/separator";
 import { DataTable } from "@/components/ui/data-table";
 import { ApiList } from "@/components/ui/api-list";
 
-interface BillboardClientProps{
+interface BillboardClientProps{ 
   data:BillboardColumn[]
 }
 
-export const BillboardClient :React.FC<BillboardClientProps> = ({
+const BillboardClient :React.FC<BillboardClientProps> = ({
   data
 }) => {
     const router = useRouter();
@@ -37,3 +37,5 @@ export const BillboardClient :React.FC<BillboardClientProps> = ({
     </>
   );
 };
+
+export default BillboardClient;
